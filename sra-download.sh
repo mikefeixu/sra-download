@@ -18,15 +18,16 @@ indir=$sourcedir/00_fastq
 
 mkdir -p $indir
 
-
+# Retrieve the accession numbers and sample names
 accession=$(awk "NR==${SGE_TASK_ID}" $sourcedir/SraAccList.txt)
 sample=$(awk "NR==${SGE_TASK_ID}" $sourcedir/sample_list.txt)
 echo "Started task ${SGE_TASK_ID} for sample: ${sample} download"; date
 
+# Download data
 cd $indir
 fastq-dump --gzip --split-3 --accession $accession
 
+# Rename downloaded data per their sample names
+# Make changes to below code according for Single Ended sequencing data
 mv ${accession}_1.fastq.gz ${sample}_1.fastq.gz
 mv ${accession}_2.fastq.gz ${sample}_1.fastq.gz
-
-
