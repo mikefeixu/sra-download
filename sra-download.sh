@@ -2,11 +2,13 @@
 #$ -cwd
 #$ -j y
 #$ -pe smp 4
-#$ -N WGBS-DL
+#$ -N SRA-Download
 #$ -S /bin/bash
 #$ -l h_vmem=16g
 #$ -l h_rt=20:00:00
-#$ -t 1-4
+#$ -t 1-47
+
+# Update above number (1-47) to reflect the number of samples to be downloaded simultaneously 
 
 echo This is task $SGE_TASK_ID
 
