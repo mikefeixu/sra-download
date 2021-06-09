@@ -32,4 +32,4 @@ fastq-dump --gzip --split-3 --accession $accession
 # Rename downloaded data per their sample names
 # Make changes to below code according for Single Ended sequencing data
 mv ${accession}_1.fastq.gz ${sample}_1.fastq.gz
-mv ${accession}_2.fastq.gz ${sample}_1.fastq.gz
+mv ${accession}_2.fastq.gz ${sample}_2.fastq.gz
